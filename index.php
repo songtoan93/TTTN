@@ -1,8 +1,8 @@
 <?php
 session_start();
 include 'connect/connect.php';
-include 'modules/addNews2.php';
-$mod = isset($_GET['mod'])?$_GET['mod']:'';
+include 'modules/addNews.php';
+$mod = isset($_GET['mod'])?$_GET['mod']:'homelist';
 ?>
 <!DOCTYPE html>
 <html>
@@ -11,28 +11,13 @@ $mod = isset($_GET['mod'])?$_GET['mod']:'';
     <title>Hỗ Trợ Sinh viên tìm phòng trọ</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <script type="text/javascript" src="javascript/function.js"></script>
-    <script type="text/javascript" src="jquery/jquery-2.1.3.min.js"></script>
     <script>
         $(function() {
-            var a = $("#district option:selected").val();
-            showWard(a);
+            getWard();
             reload();
+            loadImg();
         });
-        function readURL(input) {
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
 
-                reader.onload = function (e) {
-                    $('#preview').attr('src', e.target.result);
-                }
-
-                reader.readAsDataURL(input.files[0]);
-            }
-        }
-
-        $("#imgInp").change(function(){
-            readURL(this);
-        });
     </script>
 </head>
 <body>
@@ -46,10 +31,10 @@ $mod = isset($_GET['mod'])?$_GET['mod']:'';
     <nav class="size menu">
         <ul>
             <li>
-                <label for="tab1"><a href="index.php" <?php if(empty($mod)) echo 'class="active"';?> id="page1">Trang Chủ</a></label>
+                <a href="index.php?mod=homeList"  <?php if($mod == 'homeList') echo 'class="active"';?> id="page1">Trang Chủ</a>
             </li>
             <li>
-                <label for="tab2"><a href="index.php?mod=gii" <?php if($mod == 'gii') echo 'class="active"';?> id="page2">Cho Thuê Phòng</a></label>
+                <label for="tab2"><a href="index.php?mod=vieweach" <?php if($mod == 'vieweach') echo 'class="active"';?> id="page2">Cho Thuê Phòng</a></label>
             </li>
             <li>
                 <label for="tab3"><a href="index.php?mod=gi" <?php if($mod == 'gi') echo 'class="active"';?> id="page3">Tìm người ở ghép</a></label>
@@ -77,12 +62,13 @@ $mod = isset($_GET['mod'])?$_GET['mod']:'';
 
     <div class="size greet">
     <?php
-    if(!empty($mod)) { 
-        include 'view/form1.php';
-    } else {
-        include 'view/homeList.php';
-    }
-    ?>
+        include_once 'view/'.$mod.'.php';
+//    if(!empty($mod)) {
+//        include 'view/form.php';
+//    } else {
+//        include 'view/homeList.php';
+//    }
+//    ?>
     </div>
 
     <div class="right"></div>

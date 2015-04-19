@@ -1,18 +1,12 @@
-<form action="" method="post" enctype="multipart/form-data" id="postNews">
-            
-    <?php
-    //if(isset($errorTitle)) echo '<span class="error" style="position: absolute;left: 360px;top: 200px;">'.$errorTitle.'</span>';
-    ?>
+<form action="modules/addNews.php" method="post" enctype="multipart/form-data" id="postNews">
             
     <div class="ai_row">
         <label for="title" class="ai_label">Tiêu đề<span style="color: red">*</span>:</label>
         
         <div class="ai_element">
-            <input id="title" value="<?php if(isset($_POST['title'])) echo $_POST['title']; ?>" name="title" class="input_short" maxlength="100" type="text" style="width: 420px;">
+            <input id="title" name="title" class="input_short" maxlength="100" type="text" style="width: 420px;">
             
-             <?php
-             if(isset($errorTitle)) echo '<span class="error" style="position: absolute;left: 0;top: -25px;">'.$errorTitle.'</span>';
-            ?>
+            <span class="error" style="position: absolute;left: 0;top: -30px;">Hãy điền tiêu đề vào</span>
             
             <div id="name_tooltip" class="tooltip" style="left: 430px">
                 <div id="name_tooltip_triangle" class="triangle">&nbsp;</div>
@@ -40,10 +34,10 @@
         <label for="userName"class="ai_label">Tên<span style="color: red">*</span>:</label>
         
         <div class="ai_element">
-            <input id="userName" value="<?php if(isset($_POST['username'])) echo $_POST['username']; ?>" name="username" class="input_short" maxlength="50" type="text">
-            <?php
-            if(isset($errorName)) echo '<span class="error">'.$errorName.'</span>';
-            ?>
+            <input id="userName" name="username" class="input_short" maxlength="50" type="text">
+            
+            <span class="error">Hãy điền họ tên vào</span>
+      
             <div id="name_tooltip" class="tooltip">
                 <div id="name_tooltip_triangle" class="triangle">&nbsp;</div>
                 <span></span>
@@ -61,10 +55,10 @@
         <label for="phone" class="ai_label">Số Điện Thoại<span style="color: red">*</span>:</label>
        
         <div class="ai_element">
-            <input id="phone" value="<?php if(isset($_POST['phone'])) echo $_POST['phone']; ?>" name="phone" class="input_short" maxlength="20" type="text">
-             <?php
-            if(isset($errorPhone)) echo '<span class="error">'.$errorPhone.'</span>';
-            ?>
+            <input id="phone" name="phone" class="input_short" maxlength="20" type="text">
+            
+            <span class="error">Hãy điền số điện thoại vào</span>
+            
             <div id="name_tooltip" class="tooltip">
                 <div id="name_tooltip_triangle" class="triangle">&nbsp;</div>
                 <span></span>
@@ -83,10 +77,10 @@
         <label for="email" class="ai_label">Email<span style="color: red">*</span>:</label>
         
         <div class="ai_element">
-            <input id="email" value="<?php if(isset($_POST['email'])) echo $_POST['email']; ?>" name="email" class="input_short" maxlength="30" type="text" placeholder="example@abc.com">
-            <?php
-            if(isset($errorEmail)) echo '<span class="error">'.$errorEmail.'</span>';
-            ?>
+            <input id="email" name="email" class="input_short" maxlength="30" type="text" placeholder="example@abc.com">
+            
+            <span class="error">Hãy điền Email vào</span>
+           
             <div id="name_tooltip" class="tooltip" style="display: none">
                 <div id="name_tooltip_triangle" class="triangle">&nbsp;</div>
                 <span></span>
@@ -123,16 +117,18 @@
         
         <div class="clear"></div>
     </div>
-
+        
+    
+            
     <div class="ai_row" style="margin-top: 23px">
         <div class="ai_label"></div>
             
         <div class="ai_element">
             <label for="subAddress" style="margin-left: 16px">Số nhà và tên đường<span style="color: red">*</span>: </label>
-            <input id="subAddress" value="<?php if(isset($_POST['subAddress'])) echo $_POST['subAddress']; ?>" name="subAddress" class="input_short" maxlength="40" value="" type="text" style="width: 255px">
-            <?php
-            if(isset($errorSub)) echo '<span class="error" style="position: absolute;left: 165px;top: -25px">'.$errorSub.'</span>';
-            ?>
+            <input id="subAddress" name="subAddress" class="input_short" maxlength="40" value="" type="text" style="width: 255px">
+            
+            <span class="error" style="position: absolute;left: 180px;top: -30px">Hãy điền số nhà và tên đường vào</span>
+            
             <div id="name_tooltip" class="tooltip" style="left: 433px;">
                 <div id="name_tooltip_triangle" class="triangle">&nbsp;</div>
                 <span></span>
@@ -168,10 +164,10 @@
         <label for="price"class="ai_label">Giá Phòng<span style="color: red">*</span>:</label>
         
         <div class="ai_element">
-            <input id="price" value="<?php if(isset($_POST['price'])) echo $_POST['price']; ?>" name="price" class="input_short" maxlength="50" placeholder="" type="text" pattern="[0-9]{1,}" style="width: 100px">
-            <?php
-            if(isset($errorPrice)) echo '<span class="error">'.$errorPrice.'</span>';
-            ?>
+            <input id="price" name="price" class="input_short" maxlength="50" placeholder="" type="text" pattern="[0-9]{1,}" style="width: 100px">
+            
+            <span class="error">Hãy điền giá phòng vào</span>
+            
             <div id="name_tooltip" class="tooltip" style="left: 122px">
                 <div id="name_tooltip_triangle" class="triangle">&nbsp;</div>
                 <span></span>
@@ -191,10 +187,10 @@
         <label for="area" class="ai_label">Diện Tích<span style="color: red">*</span>:</label>
         
         <div class="ai_element">
-            <input id="area" value="<?php if(isset($_POST['area'])) echo $_POST['area']; ?>" name="area" class="input_short" maxlength="10" type="text" style="width: 50px">
-            <?php
-            if(isset($errorArea)) echo '<span class="error">'.$errorArea.'</span>';
-            ?>
+            <input id="area" name="area" class="input_short" maxlength="2" type="text" style="width: 50px">
+            
+            <span class="error">Hãy điền diện tích vào</span>
+            
             <div id="name_tooltip" class="tooltip" style="left: 70px">
                 <div id="name_tooltip_triangle" class="triangle">&nbsp;</div>
                 <span></span>
@@ -214,13 +210,11 @@
         <label for="content" class="ai_label" style="position: relative;top: -135px;">Nội Dung<span style="color: red">*</span>:</label>
         
         <div class="ai_element">
-            <?php
-            if(isset($errorContent)) echo '<span class="error">'.$errorContent.'</span>';
-            ?>
-            <textarea id="content" value="<?php if(isset($_POST['content'])) echo $_POST['content']; ?>" name="content" minlength="30" maxlength="3000" cols="65" rows="10" placeholder="Điền nội dung thông tin chi tiết về nhà trọ bạn muốn/cho thuê. Tối thiểu 30 kí tự, tối đa 3000 kí tự."></textarea>
-            <?php
-            if(isset($errorContent)) echo '<span></span>';
-            ?>
+            
+            <textarea id="content" name="content" minlength="30" maxlength="3000" cols="65" rows="10" placeholder="Điền nội dung thông tin chi tiết về nhà trọ bạn muốn/cho thuê. Tối thiểu 30 kí tự, tối đa 3000 kí tự."></textarea>
+            
+            <span class="error" style="position: absolute;top: -27px;left: 0px">Hãy điền nội dung vào</span>
+            
             <div id="name_tooltip" class="tooltip" style="left: 450px;">
                 <div id="name_tooltip_triangle" class="triangle" style="">&nbsp;</div>
                 <span></span>
@@ -239,12 +233,10 @@
         
         <div class="ai_element">
             <label for="uploadFile" class="uploadFile"><img src="image/upload-512.png">Tải hình lên</label>
-            <input type="file" id="uploadFile" name="uploadFile[]" accept="image/jpeg, image/gif, image/png, image/jpg" multiple>
-            <?php
-            if(!isset($errorImg)) $errorImgc = 'Bạn chỉ có thể tải tối đa 8 hình, mỗi hình không quá 1M với các định dạng ipg, gif, jpeg, png.';
-            else $errorImgc = 'Hãy tải hình lên đúng quy định';
-            echo '<span class="error">'.$errorImgc.'</span>';
-            ?>
+            <input type="file" id="uploadFile" name="uploadFile[]">
+            
+            <span class="error">Hãy tải hình lên</span>
+            
             <div id="name_tooltip" class="tooltip" style="left: 486px;">
                 <div id="name_tooltip_triangle" class="triangle">&nbsp;</div>
                 <span></span>
@@ -257,9 +249,7 @@
         
         <div class="clear"></div>
     </div>
-
-    <div class="ai_row preview" id="preview"></div>
-
+    
     <div class="ai_row">
         <div style="display: inline-block;top: -13px;position: relative">
             <label for="content" class="ai_label" style="">Nhập mã an toàn<span style="color: red">*</span>:</label>
@@ -269,9 +259,9 @@
             <img src="modules/CaptchaSecurityImages.php" id="captcha">
             <a href="#" id="reload" title="reload"><img src="image/reload.png" style="width: 35px"></a>
             <input class="input_short" id="security_code" name="security_code" type="text" style="position: absolute;top: 8px;width: 90px;font-size: 20px;">
-            <?php
-            if(isset($errorCaptcha)) echo '<span class="error" style="position: absolute;top: 3px;left: 270px">'.$errorCaptcha.'</span>';
-            ?>
+            
+            <span class="error" style="position: absolute;top: 3px;left: 270px">Mã không đúng</span>
+            
         </div>
         
         <div class="clear"></div>

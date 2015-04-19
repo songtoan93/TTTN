@@ -79,8 +79,9 @@ header {
     margin-left: 22px;
     margin-top: 4px;
 }
-.left a {
+.left a, .left a:visited {
     text-decoration: none;
+    color: #4827EE;
 }
 .left a:hover {
     color: #ff0000;
@@ -133,6 +134,7 @@ input[type="text"]:focus, textarea:focus {
     padding: 7px 10px;
     margin: 0 0 0 18px;
     color: white;
+    font-size: 13px;
 }
 .ai_row {
     width: 95%;
@@ -217,17 +219,17 @@ input[type="text"]:focus, textarea:focus {
 }
 .uploadFile {
     cursor: pointer;
-    font-size: 27px;
+    font-size: 20px;
     border: 1px solid #ccc;
     padding: 6px 12px;
     display: inline-block;
 }
 .uploadFile img {
-    width: 25px;
+    width: 18px;
 }
 .error {
     color: red;
-    font-size: 15px;
+    font-size: 13px;position: absolute;
 }
 .errorSub {
     display: none;
@@ -273,4 +275,39 @@ input[type="text"]:focus, textarea:focus {
 }
 .new #last p:first-child {
     color: #C75521;
+}
+
+.preview img {
+    width: 100px;
+    height: 100px;
+}
+
+.bigView {
+    display: inline-block;
+    float: left;
+}
+.bigView input[type="radio"] {
+    display: none;
+}
+.bigView input[type="radio"]:checked + img {
+    display: inline;
+}
+.bigView img {
+    width: 470px;
+    height: 370px;
+    display: none;
+}
+
+.smallGallery {
+    width: 185px;
+    display: inline;
+    float: right;
+}
+.smallGallery img {
+    height: 80px;
+    width: 80px;
+    padding: 5px;
+}
+.smallGallery img:hover {
+    background-color: #00ffff;
 }
